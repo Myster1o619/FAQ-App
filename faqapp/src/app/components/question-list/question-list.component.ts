@@ -14,14 +14,17 @@ export class QuestionListComponent implements OnInit {
       {
         text: 'What is your name?',
         answer: 'My name is Morty',
+        hide: true,
       },
       {
         text: 'What is your favorite color?',
         answer: 'My favorite color is green',
+        hide: true,
       },
       {
         text: 'When were you born?',
         answer: '25 December 2001',
+        hide: true,
       },
     ];
 
