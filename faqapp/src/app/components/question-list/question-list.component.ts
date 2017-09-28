@@ -1,3 +1,5 @@
+import { Question } from '../../models/Questions';
+import { DataService } from '../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,30 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionListComponent implements OnInit {
 
-  questions: Object[];
+  questions: Question[];
 
-  constructor() {
-    this.questions = [
-      {
-        text: 'What is your name?',
-        answer: 'My name is Morty',
-        hide: true,
-      },
-      {
-        text: 'What is your favorite color?',
-        answer: 'My favorite color is green',
-        hide: true,
-      },
-      {
-        text: 'When were you born?',
-        answer: '25 December 2001',
-        hide: true,
-      },
-    ];
+  //inject the imported service into the constructor
+  constructor(public dataService: DataService) {
 
    }
 
   ngOnInit() {
+
+    // use the imported service to get the questions:
+    this.questions = this.dataService.getQuestions();
+
   }
 
 }
