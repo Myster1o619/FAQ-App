@@ -20,7 +20,11 @@ export class QuestionListComponent implements OnInit {
 
     // use the imported service to get the questions:
     this.questions = this.dataService.getQuestions();
+  }
 
+  addQuestion(question:Question) {
+    this.dataService.addQuestion(question);
+    // console.log(question);
   }
 
 }
