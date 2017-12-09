@@ -24,6 +24,8 @@ export class AddQuestionComponent implements OnInit {
       answer: this.answer,
       hide: true,
     })
+    this.text = "";
+    this.answer = "";
   }
 
 }
