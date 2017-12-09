@@ -7,6 +7,7 @@
       <div class="form-group">
         <label for="text">Question Text</label>
         <input
+         placeholder="Enter question text" 
          required 
          type="text" 
          class="form-control"
@@ -23,6 +24,7 @@
       
         <label for="text">Question Answer</label>
         <input 
+        placeholder="Enter question answer"
         type="text" 
         class="form-control" 
         [(ngModel)]="answer" 
@@ -41,6 +43,10 @@
       [disabled]="questionText.invalid || questionAnswer.invalid"
       type="submit" 
       class="btn btn-primary">Submit</button>
+      <button
+      (click)="clearFields()"
+      [disabled]="questionText.invalid && questionAnswer.invalid" 
+      class="btn btn-warning">Clear</button>
     </form>
   </div>
 </div>

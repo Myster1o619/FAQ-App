@@ -24,6 +24,9 @@ export class AddQuestionComponent implements OnInit {
       answer: this.answer,
       hide: true,
     })
+  }
+
+  clearFields() {
     this.text = "";
     this.answer = "";
   }
