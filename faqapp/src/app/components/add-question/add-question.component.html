@@ -3,17 +3,44 @@
     Add New FAQ
   </div>
   <div class="card-block">
-    <form (submit)="addQuestion()">
+    <form (submit)="addQuestion()"#questionForm>
       <div class="form-group">
         <label for="text">Question Text</label>
-        <input type="text" class="form-control" [(ngModel)]="text" name="text">
+        <input
+         required 
+         type="text" 
+         class="form-control"
+         #questionText = "ngModel"
+         ngModel name = "questionText"
+         [(ngModel)]="text" name="text">
+         <div
+         *ngIf="!questionText.valid && questionText.touched" 
+         class="alert alert-danger">
+         <div *ngIf="questionText.errors.required">Question Text is required.</div>
+        </div>
+         <div class="form-group">
       </div>
-      <div class="form-group">
+      
         <label for="text">Question Answer</label>
-        <input type="text" class="form-control" [(ngModel)]="answer" name="answer">
+        <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="answer" 
+        name="answer"
+        required
+        #questionAnswer = "ngModel"
+        ngModel name = "questionAnswer">
+        <div
+        *ngIf="!questionAnswer.valid && questionAnswer.touched"
+        class="alert alert-danger">
+        <div *ngIf="questionAnswer.errors.required">Question answer is required.</div>
+        </div>
+
       </div>
-      <!-- <input type="submit" class="btn btn-primary" value="Submit"> -->
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button
+      [disabled]="questionText.invalid || questionAnswer.invalid"
+      type="submit" 
+      class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>
